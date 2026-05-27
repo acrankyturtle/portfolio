@@ -1,0 +1,88 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/fraunces";
+@import "@fontsource-variable/jetbrains-mono";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans:
+    "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+  --font-serif: "Fraunces Variable", ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono:
+    "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo, Consolas,
+    monospace;
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+
+  --text-display: clamp(2.75rem, 7vw, 5.5rem);
+  --text-display--line-height: 1;
+  --text-display--letter-spacing: -0.03em;
+}
+
+:root {
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --fg: #18181b;
+  --fg-muted: #52525b;
+  --fg-subtle: #a1a1aa;
+  --border: #e4e4e7;
+  --accent: #18181b;
+  /* Inverse of dark: brightest toward the top(-left), darkest at bottom-right. */
+  --bg-gradient: linear-gradient(-25deg, #e2e1dd 0%, #ffffff 100%);
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #09090b;
+  --surface: #131316;
+  --fg: #fafafa;
+  --fg-muted: #a1a1aa;
+  --fg-subtle: #52525b;
+  --border: #232328;
+  --accent: #fafafa;
+  /* Brightest point at bottom-right, darkest toward the top(-left). */
+  --bg-gradient: linear-gradient(-25deg, #141418 0%, #050507 100%);
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* background color commented out because page bg lives on the fixed -z-10 layer in <Background /> */
+  /* background-color: var(--bg); */
+}
+
+body {
+  color: var(--fg);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-feature-settings:
+    "ss01",
+    "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
