@@ -70,7 +70,7 @@ export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) 
             type="button"
             onClick={onClose}
             aria-label="Close preview"
-            className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-lg text-white transition hover:bg-white/20"
+            className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-lg text-white ring-1 ring-white/20 backdrop-blur-sm transition hover:bg-black/70"
           >
             ✕
           </button>
@@ -84,7 +84,7 @@ export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) 
                   e.stopPropagation();
                   go(-1);
                 }}
-                className="absolute top-1/2 left-4 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-xl text-white transition hover:bg-white/20"
+                className="absolute top-1/2 left-4 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-xl text-white ring-1 ring-white/20 backdrop-blur-sm transition hover:bg-black/70"
               >
                 ‹
               </button>
@@ -95,7 +95,7 @@ export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) 
                   e.stopPropagation();
                   go(1);
                 }}
-                className="absolute top-1/2 right-4 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-xl text-white transition hover:bg-white/20"
+                className="absolute top-1/2 right-4 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-xl text-white ring-1 ring-white/20 backdrop-blur-sm transition hover:bg-black/70"
               >
                 ›
               </button>
