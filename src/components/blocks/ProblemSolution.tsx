@@ -28,7 +28,10 @@ const rowGrid =
 
 function Arrow() {
   return (
-    <div className="text-fg-subtle flex items-center justify-center" aria-hidden>
+    <div
+      className="flex items-center justify-center text-fg-subtle"
+      aria-hidden
+    >
       <svg
         viewBox="0 0 24 24"
         fill="none"
@@ -52,14 +55,14 @@ export function ProblemSolution({
   className,
 }: ProblemSolutionProps) {
   return (
-    <div className={cn("space-y-3 md:space-y-4", className)}>
+    <div className={cn("space-y-14 md:space-y-4", className)}>
       {beforeLabel || afterLabel ? (
         <div className={cn(rowGrid, "hidden md:grid")}>
-          <p className="text-fg-subtle text-xs font-medium tracking-[0.18em] uppercase">
+          <p className="text-xs font-medium tracking-[0.18em] text-fg-subtle uppercase">
             {beforeLabel}
           </p>
           <span />
-          <p className="text-fg-subtle text-xs font-medium tracking-[0.18em] uppercase">
+          <p className="text-xs font-medium tracking-[0.18em] text-fg-subtle uppercase">
             {afterLabel}
           </p>
         </div>
@@ -69,17 +72,17 @@ export function ProblemSolution({
         <Reveal key={item.solution.title} delay={i * 0.05}>
           <div className={rowGrid}>
             {item.problem ? (
-              <div className="border-border bg-bg/40 rounded-xl border border-dashed px-5 py-4">
-                <p className="text-fg/80 text-sm font-medium">
+              <div className="rounded-xl border border-dashed border-border bg-bg/40 px-5 py-4">
+                <p className="text-sm font-medium text-fg/80">
                   {item.problem.title}
                 </p>
-                <p className="text-fg-muted mt-1 text-sm leading-relaxed">
+                <p className="mt-1 text-sm leading-relaxed text-fg-muted">
                   {item.problem.description}
                 </p>
               </div>
             ) : (
-              <div className="border-border flex items-center justify-center rounded-xl border border-dashed px-5 py-4">
-                <span className="text-fg-subtle text-xs font-medium tracking-[0.18em] uppercase">
+              <div className="flex items-center justify-center rounded-xl border border-dashed border-border px-5 py-4">
+                <span className="text-xs font-medium tracking-[0.18em] text-fg-subtle uppercase">
                   {newLabel}
                 </span>
               </div>
@@ -87,9 +90,9 @@ export function ProblemSolution({
 
             <Arrow />
 
-            <div className="border-border bg-surface rounded-xl border px-5 py-4 shadow-sm">
-              <p className="text-fg font-medium">{item.solution.title}</p>
-              <p className="text-fg-muted mt-1 text-sm leading-relaxed">
+            <div className="rounded-xl border border-border bg-surface px-5 py-4 shadow-sm">
+              <p className="font-medium text-fg">{item.solution.title}</p>
+              <p className="mt-1 text-sm leading-relaxed text-fg-muted">
                 {item.solution.description}
               </p>
             </div>
