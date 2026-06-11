@@ -30,7 +30,7 @@ export const experience: ExperienceItem[] = [
     company: "Circom Technologies, Inc",
     role: "Telecom Technician / Programmer",
     period: "2012 — Present",
-    location: "New York, NY",
+    location: "Derry, PA",
     summary: "Design, install, and maintain structured communications cabling",
     highlights: [
       "Maintain and establish friendly & professional customer relations",
@@ -46,7 +46,7 @@ export const experience: ExperienceItem[] = [
     company: "Vertosick Construction & Design",
     role: "Electrical & Telecom Contractor",
     period: "2018 — 2020",
-    location: "",
+    location: "Greensburg, PA",
     summary: "",
     highlights: [
       "Install, maintain, and upgrade electrical systems and wiring (indoor/outdoor lighting, three phase 480 Volt industrial equipment, controls, etc.)",
