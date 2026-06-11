@@ -129,7 +129,7 @@ export function Lightbox({
             type="button"
             onClick={onClose}
             aria-label="Close preview"
-            className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-lg text-white ring-1 ring-white/20 backdrop-blur-sm transition hover:bg-black/70"
+            className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-lg text-white ring-1 ring-white/20 backdrop-blur-sm transition-colors duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-white/20 active:bg-white/35"
           >
             ✕
           </button>
@@ -143,7 +143,7 @@ export function Lightbox({
                   e.stopPropagation();
                   go(-1);
                 }}
-                className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full bg-black/50 text-xl text-white ring-1 ring-white/20 backdrop-blur-sm transition hover:bg-black/70"
+                className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full bg-black/50 text-xl text-white ring-1 ring-white/20 backdrop-blur-sm transition-colors duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-white/20 active:bg-white/35"
               >
                 ‹
               </button>
@@ -154,7 +154,7 @@ export function Lightbox({
                   e.stopPropagation();
                   go(1);
                 }}
-                className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full bg-black/50 text-xl text-white ring-1 ring-white/20 backdrop-blur-sm transition hover:bg-black/70"
+                className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full bg-black/50 text-xl text-white ring-1 ring-white/20 backdrop-blur-sm transition-colors duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-white/20 active:bg-white/35"
               >
                 ›
               </button>
