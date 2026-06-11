@@ -16,12 +16,14 @@ export const experience: ExperienceItem[] = [
     summary:
       "Full-stack engineer developing scheduling tools across web and mobile",
     highlights: [
-      "Full stack web development using technologies including ASP.NET, Blazor, Azure, DevOps, Entity Framework, .NET, TypeScript/React",
-      "Designed, developed, and maintained reliable REST APIs for web app, mobile app, and internal services",
-      "Created smooth interactive web apps that update in real time",
-      "Clean versioning using Git following conventional commits specification and best practices",
-      "Maintain cloud infrastructure using Terraform with Terragrunt",
-      "Other developer duties such as code review, peer programming, documentation, unit tests, on-boarding, etc.",
+      "Full-stack development with ASP.NET, Blazor, .NET, Entity Framework, TypeScript/React, Azure, and DevOps",
+      "Designed and maintained reliable REST APIs across web, mobile, and internal services, with thorough unit tests and documentation",
+      "Built the self-scheduling mobile API, efficiently filtering thousands of shifts to surface eligible openings for caregivers",
+      "Helped build the client portal from the ground up, including its frontend, backing API, internal services, and speccing, designing, and developing a number of endpoints",
+      "Co-developed the messaging platform from scratch, and led implementation of full-text search",
+      "Refactored legacy DateTimeOffset code to NodaTime, modeling time semantically to clarify the code and eliminate timezone bugs",
+      "Clean Git versioning following conventional commits, with regular peer code review",
+      "Maintain cloud infrastructure with Terraform and Terragrunt",
     ],
   },
   {
