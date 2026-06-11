@@ -47,3 +47,9 @@ coverage
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
