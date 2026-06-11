@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { cn } from "../../lib/cn";
-import { Reveal } from "../ui/Reveal";
 import { Eyebrow } from "../ui/Eyebrow";
+import { Reveal } from "../ui/Reveal";
 
 type SectionHeadingProps = {
   eyebrow?: string;
@@ -24,7 +24,7 @@ export function SectionHeading({
           {children}
         </h3>
         {description ? (
-          <p className="text-fg-muted mt-4 text-lg leading-relaxed">
+          <p className="mt-4 text-lg leading-relaxed text-fg-muted">
             {description}
           </p>
         ) : null}

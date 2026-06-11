@@ -1,10 +1,10 @@
-import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { profile } from "../../content/profile";
+import { useReducedMotion } from "../../hooks/useReducedMotion";
+import { ease } from "../../lib/motion";
 import { Container } from "../layout/Container";
 import { Eyebrow } from "../ui/Eyebrow";
-import { ease } from "../../lib/motion";
-import { useReducedMotion } from "../../hooks/useReducedMotion";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -32,7 +32,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.1 }}
-            className="font-serif text-display mt-8 max-w-4xl tracking-[-0.03em]"
+            className="mt-8 max-w-4xl font-serif text-display tracking-[-0.03em]"
           >
             {profile.hero.headline}
           </motion.h1>
@@ -41,7 +41,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.25 }}
-            className="text-fg-muted mt-10 max-w-xl text-lg leading-relaxed md:text-xl"
+            className="mt-10 max-w-xl text-lg leading-relaxed text-fg-muted md:text-xl"
           >
             {profile.hero.intro}
           </motion.p>
@@ -52,7 +52,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, ease, delay: 0.5 }}
-            className="group text-fg-subtle hover:text-fg mt-24 inline-flex items-center gap-3 text-xs tracking-[0.18em] uppercase transition-colors"
+            className="group mt-24 inline-flex items-center gap-3 text-xs tracking-[0.18em] text-fg-subtle uppercase transition-colors hover:text-fg"
           >
             <span>Scroll</span>
             <svg

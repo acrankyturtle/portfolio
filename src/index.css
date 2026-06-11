@@ -9,7 +9,8 @@
   --font-sans:
     "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
     sans-serif;
-  --font-serif: "Fraunces Variable", ui-serif, Georgia, "Times New Roman", serif;
+  --font-serif:
+    "Fraunces Variable", ui-serif, Georgia, "Times New Roman", serif;
   --font-mono:
     "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo, Consolas,
     monospace;
@@ -65,9 +66,7 @@ body {
 
 body {
   font-family: var(--font-sans);
-  font-feature-settings:
-    "ss01",
-    "cv11";
+  font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }

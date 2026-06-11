@@ -16,12 +16,12 @@ export function ExternalLink({
       target="_blank"
       rel="noreferrer noopener"
       className={cn(
-        "group text-fg hover:text-accent inline-flex items-center gap-1.5 transition-colors",
+        "group inline-flex items-center gap-1.5 text-fg transition-colors hover:text-accent",
         className,
       )}
       {...rest}
     >
-      <span className="border-fg-subtle/40 group-hover:border-fg border-b border-dotted pb-px transition-colors">
+      <span className="border-b border-dotted border-fg-subtle/40 pb-px transition-colors group-hover:border-fg">
         {children}
       </span>
       {arrow ? (

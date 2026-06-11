@@ -21,7 +21,7 @@ export function Timeline({ items, className }: TimelineProps) {
       {items.map((item, i) => (
         <Reveal key={`${item.title}-${i}`} delay={i * 0.05}>
           <li className="grid grid-cols-1 gap-4 md:grid-cols-[180px_1fr] md:gap-10">
-            <div className="text-fg-subtle text-sm font-medium tracking-wide md:pt-1">
+            <div className="text-sm font-medium tracking-wide text-fg-subtle md:pt-1">
               {item.period}
             </div>
             <div className="space-y-3">
@@ -30,14 +30,14 @@ export function Timeline({ items, className }: TimelineProps) {
                   {item.title}
                 </h3>
                 {item.subtitle ? (
-                  <p className="text-fg-muted mt-1 text-sm">{item.subtitle}</p>
+                  <p className="mt-1 text-sm text-fg-muted">{item.subtitle}</p>
                 ) : null}
               </div>
               {item.body ? (
-                <div className="text-fg/90 leading-relaxed">{item.body}</div>
+                <div className="leading-relaxed text-fg/90">{item.body}</div>
               ) : null}
               {item.bullets && item.bullets.length > 0 ? (
-                <ul className="text-fg-muted ml-4 list-disc space-y-1.5 leading-relaxed">
+                <ul className="ml-4 list-disc space-y-1.5 leading-relaxed text-fg-muted">
                   {item.bullets.map((b) => (
                     <li key={b}>{b}</li>
                   ))}

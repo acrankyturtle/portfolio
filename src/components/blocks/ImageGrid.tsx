@@ -141,7 +141,7 @@ export function ImageGrid({
           );
 
           const tileClass = cn(
-            "border-border bg-surface relative flex flex-1 items-center justify-center overflow-hidden rounded-xl border",
+            "relative flex flex-1 items-center justify-center overflow-hidden rounded-xl border border-border bg-surface",
           );
 
           return (
@@ -160,8 +160,8 @@ export function ImageGrid({
                       tileClass,
                       "group transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
                       isVideo ? "cursor-pointer" : "cursor-zoom-in",
-                      "hover:border-fg-subtle/50 hover:-translate-y-1",
-                      "focus-visible:ring-fg/50 focus-visible:ring-2 focus-visible:outline-none",
+                      "hover:-translate-y-1 hover:border-fg-subtle/50",
+                      "focus-visible:ring-2 focus-visible:ring-fg/50 focus-visible:outline-none",
                     )}
                     style={aspect ? { aspectRatio: aspect } : undefined}
                   >

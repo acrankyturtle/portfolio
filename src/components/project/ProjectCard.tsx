@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { formatYear, type ProjectMeta } from "../../content/projects/types";
 import { cn } from "../../lib/cn";
 import { fadeUp } from "../../lib/motion";
@@ -26,16 +26,13 @@ export function ProjectCard({ meta, index = 0, className }: ProjectCardProps) {
       >
         <div
           className={cn(
-            "border-border bg-surface relative overflow-hidden rounded-2xl border",
+            "relative overflow-hidden rounded-2xl border border-border bg-surface",
             "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
-            "group-hover:border-fg-subtle/50 group-hover:-translate-y-1",
-            "group-focus-visible:ring-fg/40 group-focus-visible:ring-2 group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-bg",
+            "group-hover:-translate-y-1 group-hover:border-fg-subtle/50",
+            "group-focus-visible:ring-2 group-focus-visible:ring-fg/40 group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-bg",
           )}
         >
-          <div
-            className="overflow-hidden"
-            style={{ aspectRatio: "16 / 10" }}
-          >
+          <div className="overflow-hidden" style={{ aspectRatio: "16 / 10" }}>
             <img
               src={meta.cover}
               alt={meta.coverAlt ?? meta.title}
@@ -48,11 +45,11 @@ export function ProjectCard({ meta, index = 0, className }: ProjectCardProps) {
           <h3 className="font-serif text-2xl tracking-tight md:text-3xl">
             {meta.title}
           </h3>
-          <span className="text-fg-subtle font-mono text-sm tabular-nums">
+          <span className="font-mono text-sm text-fg-subtle tabular-nums">
             {formatYear(meta)}
           </span>
         </div>
-        <p className="text-fg-muted mt-2 max-w-xl text-base leading-relaxed">
+        <p className="mt-2 max-w-xl text-base leading-relaxed text-fg-muted">
           {meta.tagline}
         </p>
       </Link>

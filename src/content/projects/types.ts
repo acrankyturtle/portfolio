@@ -24,7 +24,9 @@ export type Project = {
   Component: ComponentType;
 };
 
-export function formatYear(meta: Pick<ProjectMeta, "year" | "endYear">): string {
+export function formatYear(
+  meta: Pick<ProjectMeta, "year" | "endYear">,
+): string {
   return meta.endYear && meta.endYear !== meta.year
     ? `${meta.year}–${meta.endYear}`
     : `${meta.year}`;

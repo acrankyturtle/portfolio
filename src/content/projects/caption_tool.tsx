@@ -45,11 +45,11 @@ export default function CaptionTool() {
       <Section eyebrow="Overview" heading="Automate to save time">
         <Prose>
           <p>
-            Caption Tool simplifies the customer's workflow greatly. The
-            photo's filename is created by the technician at the time it is
-            taken, and it tells Caption Tool everything it needs to know about
-            what cells in the spreadsheet to pull the data from, how it should
-            be formatted, and where on the image the caption should go.
+            Caption Tool simplifies the customer's workflow greatly. The photo's
+            filename is created by the technician at the time it is taken, and
+            it tells Caption Tool everything it needs to know about what cells
+            in the spreadsheet to pull the data from, how it should be
+            formatted, and where on the image the caption should go.
           </p>
         </Prose>
       </Section>

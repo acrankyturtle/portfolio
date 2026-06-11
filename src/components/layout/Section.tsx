@@ -1,10 +1,10 @@
-import type { HTMLAttributes, ReactNode } from "react";
 import { motion } from "framer-motion";
-import { cn } from "../../lib/cn";
-import { Container } from "./Container";
-import { Eyebrow } from "../ui/Eyebrow";
-import { fadeUp, staggerChildren } from "../../lib/motion";
+import type { HTMLAttributes, ReactNode } from "react";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
+import { cn } from "../../lib/cn";
+import { fadeUp, staggerChildren } from "../../lib/motion";
+import { Eyebrow } from "../ui/Eyebrow";
+import { Container } from "./Container";
 
 type SectionProps = HTMLAttributes<HTMLElement> & {
   eyebrow?: string;
@@ -49,7 +49,7 @@ export function Section({
                 </h2>
               ) : null}
               {description ? (
-                <p className="text-fg-muted mt-6 text-lg leading-relaxed">
+                <p className="mt-6 text-lg leading-relaxed text-fg-muted">
                   {description}
                 </p>
               ) : null}
@@ -78,7 +78,7 @@ export function Section({
               {description ? (
                 <motion.p
                   variants={fadeUp}
-                  className="text-fg-muted mt-6 text-lg leading-relaxed"
+                  className="mt-6 text-lg leading-relaxed text-fg-muted"
                 >
                   {description}
                 </motion.p>

@@ -8,7 +8,7 @@ export function Caption({
 }: HTMLAttributes<HTMLElement>) {
   return (
     <figcaption
-      className={cn("text-fg-subtle text-sm leading-relaxed", className)}
+      className={cn("text-sm leading-relaxed text-fg-subtle", className)}
       {...rest}
     >
       {children}

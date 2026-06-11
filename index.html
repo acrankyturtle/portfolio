@@ -13,8 +13,7 @@
             "(prefers-color-scheme: light)",
           ).matches;
           var theme = stored || (prefersLight ? "light" : "dark");
-          if (theme === "dark")
-            document.documentElement.classList.add("dark");
+          if (theme === "dark") document.documentElement.classList.add("dark");
         } catch (e) {}
       })();
     </script>
