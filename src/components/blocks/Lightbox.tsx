@@ -1,5 +1,11 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { useCallback, useEffect } from "react";
+import {
+  AnimatePresence,
+  animate,
+  motion,
+  useMotionValue,
+} from "framer-motion";
+import * as React from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { ease } from "../../lib/motion";
 
@@ -18,7 +24,12 @@ type LightboxProps = {
   onNavigate: (index: number) => void;
 };
 
-export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) {
+export function Lightbox({
+  images,
+  index,
+  onClose,
+  onNavigate,
+}: LightboxProps) {
   const open = index !== null;
   const hasMany = images.length > 1;
 
@@ -28,6 +39,54 @@ export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) 
       onNavigate((index + delta + images.length) % images.length);
     },
     [index, images.length, onNavigate],
+  );
+
+  // drag navigation
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const dragX = useMotionValue(0);
+  const SWIPE_THRESHOLD = 50;
+
+  const onTouchStart = useCallback((e: React.TouchEvent) => {
+    const t = e.touches[0];
+    touchStart.current = { x: t.clientX, y: t.clientY };
+  }, []);
+
+  const onTouchMove = useCallback(
+    (e: React.TouchEvent) => {
+      const start = touchStart.current;
+      if (!start || !hasMany) return;
+
+      const t = e.touches[0];
+      const dx = t.clientX - start.x;
+      const dy = t.clientY - start.y;
+
+      if (Math.abs(dx) > Math.abs(dy)) dragX.set(dx * 0.4);
+    },
+    [hasMany, dragX],
+  );
+
+  const onTouchEnd = useCallback(
+    (e: React.TouchEvent) => {
+      const start = touchStart.current;
+      touchStart.current = null;
+
+      const t = e.changedTouches[0];
+      const dx = start ? t.clientX - start.x : 0;
+      const dy = start ? t.clientY - start.y : 0;
+      const swiped =
+        !!start &&
+        hasMany &&
+        Math.abs(dx) >= SWIPE_THRESHOLD &&
+        Math.abs(dx) > Math.abs(dy);
+
+      if (swiped) {
+        dragX.set(0);
+        go(dx < 0 ? 1 : -1);
+      } else {
+        animate(dragX, 0, { type: "spring", stiffness: 500, damping: 40 });
+      }
+    },
+    [hasMany, go, dragX],
   );
 
   useEffect(() => {
@@ -76,7 +135,7 @@ export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) 
           </button>
 
           {hasMany && (
-            <>
+            <div className="pointer-events-none absolute inset-x-0 bottom-4 flex justify-center gap-6 md:inset-x-4 md:top-1/2 md:bottom-auto md:-translate-y-1/2 md:justify-between">
               <button
                 type="button"
                 aria-label="Previous image"
@@ -84,7 +143,7 @@ export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) 
                   e.stopPropagation();
                   go(-1);
                 }}
-                className="absolute top-1/2 left-4 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-xl text-white ring-1 ring-white/20 backdrop-blur-sm transition hover:bg-black/70"
+                className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full bg-black/50 text-xl text-white ring-1 ring-white/20 backdrop-blur-sm transition hover:bg-black/70"
               >
                 ‹
               </button>
@@ -95,22 +154,26 @@ export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) 
                   e.stopPropagation();
                   go(1);
                 }}
-                className="absolute top-1/2 right-4 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-xl text-white ring-1 ring-white/20 backdrop-blur-sm transition hover:bg-black/70"
+                className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full bg-black/50 text-xl text-white ring-1 ring-white/20 backdrop-blur-sm transition hover:bg-black/70"
               >
                 ›
               </button>
-            </>
+            </div>
           )}
 
           <motion.figure
             key={current.src}
-            className="flex max-h-full max-w-5xl flex-col items-center gap-4"
+            className="flex max-h-full max-w-5xl flex-col items-center gap-4 pt-14 pb-16 md:py-0"
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.96 }}
             transition={{ duration: 0.2, ease }}
+            style={{ x: dragX }}
             // Clicks on the image itself should not dismiss the overlay.
             onClick={(e) => e.stopPropagation()}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
           >
             {current.kind === "video" ? (
               <video
@@ -119,13 +182,13 @@ export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) 
                 autoPlay
                 playsInline
                 aria-label={current.alt}
-                className="max-h-[80vh] w-auto max-w-full rounded-lg"
+                className="max-h-[70vh] w-auto max-w-full rounded-lg md:max-h-[80vh]"
               />
             ) : (
               <img
                 src={current.src}
                 alt={current.alt}
-                className="max-h-[80vh] w-auto max-w-full rounded-lg object-contain"
+                className="max-h-[70vh] w-auto max-w-full rounded-lg object-contain md:max-h-[80vh]"
               />
             )}
             {current.caption && (
