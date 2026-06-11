@@ -44,7 +44,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     company: "Vertosick Construction & Design",
-    role: "Electrical & Telecom Contractor",
+    role: "Electrical Contractor",
     period: "2018 — 2020",
     location: "Greensburg, PA",
     summary: "",
