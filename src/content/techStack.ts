@@ -23,6 +23,8 @@ export const techStack: TechGroup[] = [
       "Docker",
       "Kubernetes",
       "DevOps",
+      "Agentic AI",
+      "Claude",
     ],
   },
 ];
